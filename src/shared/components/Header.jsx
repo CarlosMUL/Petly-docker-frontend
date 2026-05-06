@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useAuth } from "../../features/auth/components/AuthContext";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 export default function Header() {
     const { user, logout } = useAuth();
@@ -27,7 +28,7 @@ export default function Header() {
                 {/* IZQUIERDA */}
                 <div className="flex items-center">
                     <a href="/" className="flex items-center gap-2">
-                        <img src="src/assets/logo.png" className="h-7" alt="Logo" />
+                        <img src={logo} className="h-7" alt="Logo" />
                         <span className="text-white text-xl font-semibold">
                             Petly
                         </span>
