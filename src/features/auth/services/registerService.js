@@ -1,7 +1,9 @@
+import { API_USUARIOS } from "../../../config/api";
+
 export async function registerUser(data) {
     try {
 
-        const response = await fetch("http://localhost:8081/petly/usuarios/registrar", {
+        const response = await fetch(`${API_USUARIOS}/petly/usuarios/registrar`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

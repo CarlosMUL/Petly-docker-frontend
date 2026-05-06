@@ -1,9 +1,11 @@
+import { API_MASCOTAS } from "../../../config/api";
+
 export async function getMisMascotas() {
     try {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-            "http://localhost:8080/petly/mascotas/mis-mascotas",
+            `${API_MASCOTAS}/petly/mascotas/mis-mascotas`,
             {
                 method: "GET",
                 headers: {

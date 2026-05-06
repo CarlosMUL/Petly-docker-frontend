@@ -1,5 +1,6 @@
+import { API_REPORTES } from "../../../config/api";
 const REPORTS_MAP_URL =
-  import.meta.env.VITE_REPORTS_MAP_URL || "http://localhost:8081/petly/reportes";
+  import.meta.env.VITE_REPORTS_MAP_URL || `${API_REPORTES}/petly/reportes`;
 
 function buildQuery(filters = {}) {
   const query = new URLSearchParams();

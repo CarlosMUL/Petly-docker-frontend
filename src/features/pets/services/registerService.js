@@ -1,3 +1,5 @@
+import { API_MASCOTAS } from "../../../config/api";
+
 export async function registerService(Data) {
     try {
 
@@ -38,7 +40,7 @@ export async function registerService(Data) {
             }
         }
 
-        const response = await fetch("http://localhost:8080/petly/mascotas/registrar", {
+        const response = await fetch(`${API_MASCOTAS}/petly/mascotas/registrar`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,

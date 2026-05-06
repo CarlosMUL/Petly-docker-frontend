@@ -1,6 +1,8 @@
+import { API_USUARIOS } from "../../../config/api";
+
 export async function loginUser(data) {
     try {
-        const response = await fetch("http://localhost:8081/petly/auth/login", {
+        const response = await fetch(`${API_USUARIOS}/petly/auth/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
