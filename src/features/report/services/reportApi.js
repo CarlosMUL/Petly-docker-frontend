@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8081";
+const API_URL = import.meta.env.VITE_REPORTES_URL || "http://localhost:8083";
 
 export async function createReport(data, tipoReporte) {
   const formData = new FormData();
