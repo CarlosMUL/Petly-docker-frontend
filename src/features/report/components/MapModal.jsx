@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import Map from "../../map/components/MapBox";
+import Map from "../../map/components/mapBox";
 import Field from "../../../shared/components/Field";
 
 
