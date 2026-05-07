@@ -1,6 +1,6 @@
 export async function loginUser(data) {
     try {
-        const response = await fetch("http://localhost:8081/petly/auth/login", {
+        const response = await fetch("http://localhost:8084/petly/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

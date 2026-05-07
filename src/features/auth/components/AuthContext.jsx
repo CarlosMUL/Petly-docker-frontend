@@ -1,21 +1,15 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { useState } from "react";
+import { AuthContext } from "../context/authContext";
 
-const AuthContext = createContext();
-
-//createContext: para crear un contexto (evita pasar props manualmente por muchos niveles).
-
-//useContext: para consumir el contexto en componentes hijos.   
 
 
 export function AuthProvider({ children }) {
-    const [user, setUser] = useState(null);
 
-    useEffect(() => {
+    const [user, setUser] = useState(() => {
         const storedUser = localStorage.getItem("usuario");
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
-        }
-    }, []);
+        return storedUser ? JSON.parse(storedUser) : null;
+    });
+
 
     const login = (userData, token) => {
         localStorage.setItem("token", token);
@@ -34,8 +28,4 @@ export function AuthProvider({ children }) {
             {children}
         </AuthContext.Provider>
     );
-}
-
-export function useAuth() {
-    return useContext(AuthContext);
 }

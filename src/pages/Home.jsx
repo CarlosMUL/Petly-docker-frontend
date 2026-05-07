@@ -10,13 +10,17 @@ import { DEFAULT_PET_FILTERS } from "../features/incidents/constants/filters";
 import { usePets } from "../features/incidents/hooks/usePets";
 import SearchBar from "../features/incidents/components/SearchBar";
 import { useUserLocation } from "../shared/hooks/useUserLocation";
-import ReportModal from "../features/report/components/ReportModal"
+import ReportModal from "../features/report/components/ReportModal";
+import AuthGuardModal from "../shared/components/AuthGuardModal";
+import { useAuth } from "../features/auth/components/AuthContext";
 
 export default function Home() {
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [authGuardOpen, setAuthGuardOpen] = useState(false);
   const [filters, setFilters] = useState(DEFAULT_PET_FILTERS);
   const { submitReport } = useReport();
+  const { user } = useAuth();
   const [actionType, setActionType] = useState(null);
   const gridRef = useRef(null);
   const { pets, loading } = usePets(filters);
@@ -30,9 +34,8 @@ export default function Home() {
     Avistamiento: "AVISTAMIENTO",
   };
 
-  function handleSubmit(data) {
-    submitReport(data, tipoReporte);
-    setModalOpen(false);
+  async function handleSubmit(data) {
+    await submitReport(data, tipoReporte);
   }
 
   function handleClose() {
@@ -52,17 +55,6 @@ export default function Home() {
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
   }, [selectedReportId]);
-
-  function handleFiltersChange(nextFilters) {
-    setSelectedReportId(null);
-    setFilters(nextFilters);
-  }
-
-  function handleSearchChange(search) {
-    setSelectedReportId(null);
-    setFilters({ ...filters, search });
-  }
-
 
   return (
 
@@ -102,11 +94,15 @@ export default function Home() {
       {/* FAB centrado horizontalmente */}
       <FloatingButton
         onAction={(type) => {
+          if (!user) {
+            setAuthGuardOpen(true);
+            return;
+          }
           setActionType(type);
           setModalOpen(true);
-          setTipoReporte(mapTipo[type])
-        }
-        } />
+          setTipoReporte(mapTipo[type]);
+        }}
+      />
 
       <ReportModal
         open={modalOpen}
@@ -115,6 +111,8 @@ export default function Home() {
         onClose={handleClose}
         onSubmit={handleSubmit}
       />
+
+      <AuthGuardModal open={authGuardOpen} onClose={() => setAuthGuardOpen(false)} />
 
 
     </div>

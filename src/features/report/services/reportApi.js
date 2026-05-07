@@ -34,8 +34,11 @@ export async function createReport(data, tipoReporte) {
 
 
 
+  const token = localStorage.getItem("token");
+
   const res = await fetch(`${API_URL}/petly/reportes`, {
     method: "POST",
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
     body: formData,
   });
 

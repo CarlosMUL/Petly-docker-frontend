@@ -5,7 +5,6 @@ export default function SizeGender({
     formData,
     handleChange,
     handleSelect,
-    next,
     back,
     error,
 }) {

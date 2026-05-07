@@ -38,11 +38,8 @@ export default function ReportModal({ open, onClose, onSubmit, actionType, tipoR
                     tipoReporte={tipoReporte}
                     onBack={() => setStep("map")}
                     onClose={onClose}
-                    onSubmit={(data) => {
-                        onSubmit(data)
-                        // reset interno
-                        setCoords(null);
-                        setStep("map");
+                    onSubmit={async (data) => {
+                        await onSubmit(data);
                     }}
                 />
             )}
