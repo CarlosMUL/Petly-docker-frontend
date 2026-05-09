@@ -1,7 +1,7 @@
 export async function registerUser(data) {
     try {
 
-        const response = await fetch("http://localhost:8084/petly/usuarios/registrar", {
+        const response = await fetch("http://localhost:8080/petly/usuarios/registrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

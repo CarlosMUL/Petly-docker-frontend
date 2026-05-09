@@ -1,5 +1,5 @@
 const REPORTS_MAP_URL =
-  import.meta.env.VITE_REPORTS_MAP_URL || "http://localhost:8083/petly/reportes";
+  import.meta.env.VITE_REPORTS_MAP_URL || "http://localhost:8080/petly/reportes";
 
 function buildQuery(filters = {}) {
   const query = new URLSearchParams();

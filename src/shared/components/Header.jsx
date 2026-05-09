@@ -37,8 +37,8 @@ export default function Header() {
                 {/* CENTRO */}
                 <ul className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 gap-8 text-white">
                     <li><a className="hover:text-[#5DCAA5]" href="/">Home</a></li>
-                    <li><a className="hover:text-[#5DCAA5]" href="#">Servicios</a></li>
-                    <li><a className="hover:text-[#5DCAA5]" href="#">Contacto</a></li>
+                    <li><a className="hover:text-[#5DCAA5]" href="/Mapa">Mapa</a></li>
+                    <li><a className="hover:text-[#5DCAA5]" href="/Reportes">Reportes</a></li>
                 </ul>
 
                 <div className="flex justify-end gap-2">

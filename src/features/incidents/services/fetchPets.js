@@ -1,6 +1,6 @@
 import { mockPets } from "../data/MockPets";
 const USE_MOCK = import.meta.env.VITE_USE_MOCKS === "true";
-const REPORTS_API_URL = "http://localhost:8081/petly/reportes";
+const REPORTS_API_URL = "http://localhost:8080/petly/reportes";
 const REPORTS_BY_TYPE_API_URL = `${REPORTS_API_URL}/filtrar/tipo`;
 
 function getReportTypeFilter(filters) {
@@ -38,6 +38,7 @@ function normalizePets(data) {
         status: pet.estadoMascota || pet.estado_mascota,
         description: pet.descripcion,
         contacto: pet.contacto,
+        photo: pet.photo || pet.imagenUrl || pet.imagen_url,
         imagen_url: pet.imagenUrl || pet.imagen_url,
         latitud: pet.latitud,
         longitud: pet.longitud,

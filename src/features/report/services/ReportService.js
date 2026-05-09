@@ -1,5 +1,5 @@
 const MIS_REPORTES_URL =
-  import.meta.env.VITE_MIS_REPORTES_URL || "http://localhost:8081/petly/reportes/mis-reportes";
+  import.meta.env.VITE_MIS_REPORTES_URL || "http://localhost:8080/petly/reportes/mis-reportes";
 
 function getToken() {
   return localStorage.getItem("token");
