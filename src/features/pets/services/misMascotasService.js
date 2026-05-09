@@ -3,7 +3,7 @@ export async function getMisMascotas() {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-            "http://localhost:8080/petly/mascotas/mis-mascotas",
+            `${import.meta.env.VITE_MASCOTAS_URL || "http://localhost:8080"}/petly/mascotas/mis-mascotas`,
             {
                 method: "GET",
                 headers: {

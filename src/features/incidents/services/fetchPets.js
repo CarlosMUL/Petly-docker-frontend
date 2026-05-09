@@ -1,6 +1,6 @@
 import { mockPets } from "../data/MockPets";
 const USE_MOCK = import.meta.env.VITE_USE_MOCKS === "true";
-const REPORTS_API_URL = "http://localhost:8080/petly/reportes";
+const REPORTS_API_URL = `${import.meta.env.VITE_REPORTES_URL || "http://localhost:8083"}/petly/reportes`;
 const REPORTS_BY_TYPE_API_URL = `${REPORTS_API_URL}/filtrar/tipo`;
 
 function getReportTypeFilter(filters) {

@@ -38,7 +38,7 @@ export async function registerService(Data) {
             }
         }
 
-        const response = await fetch("http://localhost:8080/petly/mascotas/registrar", {
+        const response = await fetch(`${import.meta.env.VITE_MASCOTAS_URL || "http://localhost:8080"}/petly/mascotas/registrar`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
