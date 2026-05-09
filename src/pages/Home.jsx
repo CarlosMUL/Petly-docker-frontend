@@ -12,7 +12,7 @@ import SearchBar from "../features/incidents/components/SearchBar";
 import { useUserLocation } from "../shared/hooks/useUserLocation";
 import ReportModal from "../features/report/components/ReportModal";
 import AuthGuardModal from "../shared/components/AuthGuardModal";
-import { useAuth } from "../features/auth/components/AuthContext";
+import { useAuth } from "../features/auth/context/authContext";
 
 export default function Home() {
 
