@@ -9,7 +9,7 @@ const REPORTS_API_URL =
   import.meta.env.VITE_REPORTS_MAP_URL || "http://localhost:8080/petly/reportes";
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
-export default function Home2() {
+export default function Home() {
   const carouselRef = useRef(null);
   const [authGuardOpen, setAuthGuardOpen] = useState(false);
   const [backendReports, setBackendReports] = useState([]);
